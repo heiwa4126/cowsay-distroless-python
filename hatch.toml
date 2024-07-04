@@ -19,6 +19,10 @@ default-args = [
   "src",
 ] # testスクリプトを本体と同じディレクトリに置く
 #----
+[envs.default.env-vars]
+CIDFILE = ".cowsay-distroless.cid"
+IMGNAME = "cowsay-distroless"
+MODNAME = "cowsay_distroless"
 
 [version]
 path = "src/cowsay_distroless/__about__.py"
@@ -33,3 +37,34 @@ check = "mypy --install-types --non-interactive {args:src/cowsay_distroless test
 
 [envs.default.scripts]
 main = "python src/cowsay_distroless/main.py"
+
+bump = [
+  "hatch version patch",
+  "git add --all",
+  "git commit -am \"v$(hatch version)\"",
+  "git tag -a \"v$(hatch version)\" -m \"v$(hatch version)\"",
+]
+
+build = [
+  "rm -rf ./dist",
+  "hatch build",
+]
+
+"build-docker" = [
+  "hatch build",
+  """docker build . \\
+  --build-arg BDIST="$MODNAME-$(hatch version)-py3-none-any.whl" \\
+  -t $IMGNAME:$(hatch version)""",
+  "docker tag $IMGNAME:$(hatch version) $IMGNAME:latest",
+  "docker images $IMGNAME",
+]
+
+"start-docker" = "docker run --rm $IMGNAME:latest"
+
+# "log" = "docker logs $(cat $CIDFILE)"
+# "logf" = "docker logs -f $(cat $CIDFILE)"
+
+# "stop-docker" = [
+#   "docker stop $(cat $CIDFILE)",
+#   "docker rm $(cat $CIDFILE)",
+# ]

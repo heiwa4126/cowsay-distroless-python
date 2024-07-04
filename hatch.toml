@@ -57,9 +57,9 @@ build = [
   --build-arg BDIST="$MODNAME-$(hatch version)-py3-none-any.whl" \\
   -t $IMGNAME:$(hatch version)""",
   "docker tag $IMGNAME:$(hatch version) $IMGNAME:latest",
-  "docker images $IMGNAME",
+  "list-docker",
 ]
-
+"list-docker" = "docker images $IMGNAME"
 "start-docker" = "docker run --rm $IMGNAME:latest"
 
 "it" = "docker run -it --rm $IMGNAME:latest /bin/bash"

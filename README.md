@@ -1,6 +1,6 @@
-# hello-distroless
+# cowsay-distroless
 
-Google の distroless でマルチステージビルドの練習。
+Google の distroless でマルチステージビルドの練習 (依存がある版)。
 
 - [distroless/examples/python3 at main · GoogleContainerTools/distroless](https://github.com/GoogleContainerTools/distroless/tree/main/examples/python3)
 - via [distroless/python3/README.md at main · GoogleContainerTools/distroless](https://github.com/GoogleContainerTools/distroless/blob/main/python3/README.md)

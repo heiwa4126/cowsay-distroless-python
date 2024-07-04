@@ -15,6 +15,22 @@ hatch run build-docker
 hatch run start-docker
 ```
 
+中身は `cowsay.cow("Hello World")` が実行されるだけ。
+
+```console
+$ hatch run start-docker
+  ___________
+| Hello World |
+  ===========
+           \
+            \
+              ^__^
+              (oo)\_______
+              (__)\       )\/\
+                  ||----w |
+                  ||     ||
+```
+
 ## 結果
 
 ```console
@@ -31,4 +47,4 @@ cowsay-distroless   0.0.1     dc00cbad4da5   About an hour ago   141MB
 ## コツ
 
 `python3 -m cowsay_distroless` で動くように `__main__.py` を書いた。
-そうしないとパスがめんどくさすぎる。
+そうしないとパスがめんどくさすぎる (`hatch run main` で確認できる)。

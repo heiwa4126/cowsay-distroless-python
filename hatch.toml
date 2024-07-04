@@ -36,7 +36,8 @@ extra-dependencies = [
 check = "mypy --install-types --non-interactive {args:src/cowsay_distroless tests}"
 
 [envs.default.scripts]
-main = "python src/cowsay_distroless/__main__.py"
+# main = "python src/cowsay_distroless/__main__.py"
+main = "python -m cowsay_distroless"
 
 bump = [
   "hatch version patch",

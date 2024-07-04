@@ -14,6 +14,10 @@ type = "pip-compile"
 pip-compile-resolver = "uv"
 # lock-filename = "requirements.lock"
 
+[envs.hatch-test]
+default-args = [
+  "src",
+] # testスクリプトを本体と同じディレクトリに置く
 #----
 
 [version]

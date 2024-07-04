@@ -2,11 +2,12 @@
 
 Google の distroless でマルチステージビルドの練習 (依存がある版)。
 
-- [distroless/examples/python3 at main · GoogleContainerTools/distroless](https://github.com/GoogleContainerTools/distroless/tree/main/examples/python3)
-- via [distroless/python3/README.md at main · GoogleContainerTools/distroless](https://github.com/GoogleContainerTools/distroless/blob/main/python3/README.md)
-- via [GoogleContainerTools/distroless: 🥑 Language focused docker images, minus the operating system.](https://github.com/GoogleContainerTools/distroless/tree/main)
+[heiwa4126/hello-distroless-python: Google の distroless でマルチステージビルドの練習](https://github.com/heiwa4126/hello-distroless-python)
+からの fork
 
-で、一番上のリンクから `Dockerfile` と `hello.py` をコピーしてきたもの。
+以下 ↓ はまだ嘘。
+
+---
 
 ```sh
 docker build . -t hello-distroless

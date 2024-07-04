@@ -1,15 +1,20 @@
 [build-system]
-requires = ["hatchling"]
+requires = [ "hatchling" ]
 build-backend = "hatchling.build"
 
 [project]
 name = "cowsay-distroless"
-dynamic = ["version"]
-description = ''
+dynamic = [ "version" ]
+description = "A Python package that demonstrates multi-stage builds with Google's Distroless images, featuring a dependency on the 'cowsay' package."
 readme = "README.md"
 requires-python = ">=3.8"
 license = "MIT"
-keywords = []
+keywords = [
+  "demo",
+  "docker",
+  "distroless",
+  "cowsay",
+]
 authors = [
   { name = "heiwa4126", email = "heiwa4126@gmail.com" },
 ]
@@ -24,7 +29,10 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [ "cowsay" ]
+
+[project.scripts]
+"cowsay-distroless" = "cowsay_distroless:main"
 
 [project.urls]
 Documentation = "https://github.com/heiwa4126/cowsay-distroless#readme"
@@ -32,7 +40,10 @@ Issues = "https://github.com/heiwa4126/cowsay-distroless/issues"
 Source = "https://github.com/heiwa4126/cowsay-distroless"
 
 [tool.coverage.run]
-source_pkgs = ["cowsay_distroless", "tests"]
+source_pkgs = [
+  "cowsay_distroless",
+  "tests",
+]
 branch = true
 parallel = true
 omit = [
@@ -40,8 +51,14 @@ omit = [
 ]
 
 [tool.coverage.paths]
-cowsay_distroless = ["src/cowsay_distroless", "*/cowsay-distroless/src/cowsay_distroless"]
-tests = ["tests", "*/cowsay-distroless/tests"]
+cowsay_distroless = [
+  "src/cowsay_distroless",
+  "*/cowsay-distroless/src/cowsay_distroless",
+]
+tests = [
+  "tests",
+  "*/cowsay-distroless/tests",
+]
 
 [tool.coverage.report]
 exclude_lines = [

@@ -15,7 +15,12 @@ FROM gcr.io/distroless/python3-debian12:nonroot-amd64
 
 COPY --from=build-env /usr/local/lib/python3.11 /usr/local/lib/python3.11
 ENV PYTHONPATH=/usr/local/lib/python3.11/site-packages:/usr/lib/python311.zip:/usr/lib/python3.11:/usr/lib/python3.11/lib-dynload
+# 全部列挙しないで
+# ENV PYTHONPATH=/usr/local/lib/python3.11/site-packages
+# だけでもいいかもしれない
 
 WORKDIR /opt/app
+# 空だけどいちおう書いとく
 USER nonroot
 CMD ["-m", "cowsay_distroless"]
+# `python -m cowsay_distroless` が実行される

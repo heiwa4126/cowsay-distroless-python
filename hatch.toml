@@ -60,7 +60,9 @@ build = [
 ]
 
 "start-docker" = "docker run --rm $IMGNAME:latest"
+
 "it" = "docker run -it --rm $IMGNAME:latest /bin/bash"
+# ↑Dockerfile0用. distrolessはbashがない
 
 # "log" = "docker logs $(cat $CIDFILE)"
 # "logf" = "docker logs -f $(cat $CIDFILE)"

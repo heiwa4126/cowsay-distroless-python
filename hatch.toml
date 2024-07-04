@@ -36,7 +36,7 @@ extra-dependencies = [
 check = "mypy --install-types --non-interactive {args:src/cowsay_distroless tests}"
 
 [envs.default.scripts]
-main = "python src/cowsay_distroless/main.py"
+main = "python src/cowsay_distroless/__main__.py"
 
 bump = [
   "hatch version patch",
@@ -60,6 +60,7 @@ build = [
 ]
 
 "start-docker" = "docker run --rm $IMGNAME:latest"
+"it" = "docker run -it --rm $IMGNAME:latest /bin/bash"
 
 # "log" = "docker logs $(cat $CIDFILE)"
 # "logf" = "docker logs -f $(cat $CIDFILE)"

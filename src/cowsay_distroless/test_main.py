@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch
 
-from cowsay_distroless import main
+from cowsay_distroless.main import main
 
 
 class TestMain(unittest.TestCase):

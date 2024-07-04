@@ -9,11 +9,12 @@ ARG BDIST
 COPY dist/${BDIST} /opt
 RUN pip3 install /opt/${BDIST}
 
-CMD ["cowsay-distroless"]
-
+# CMD ["cowsay-distroless"]
+CMD ["python3", "-m", "cowsay_distroless"]
 
 # FROM gcr.io/distroless/python3-debian12:nonroot-amd64
-# COPY --from=build-env /app /app
-# WORKDIR /app
+# COPY --from=build-env /opt/app /opt/app
+# WORKDIR /opt/app
 # USER nonroot
+
 # CMD ["hello.py", "/etc"]

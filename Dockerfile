@@ -1,4 +1,4 @@
-FROM python:3.13-slim-bookworm AS build-env
+FROM python:3.14-slim-bookworm AS build-env
 # 下のdistrolessとpythonのバージョンをあわせる
 
 ENV PYTHONDONTWRITEBYTECODE=1
